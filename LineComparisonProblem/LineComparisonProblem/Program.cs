@@ -1,43 +1,78 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-
-namespace Display_Welcome_to_Line_Comparison
+namespace LineComparisionTwoLines
 {
     public class Line
     {
-        public void ComputeLength(Double x1, Double x2, Double y1, Double y2)
+
+        public double computelength(int x1, int y1, int x2, int y2)
         {
 
+            int xabs = Math.Abs(x2 - x1);
+            int yabs = Math.Abs(y2 - y1);
 
+            int distance_square = (int)(Math.Pow(xabs, 2) + Math.Pow(yabs, 2));
 
-            Double Length_of_line = Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
-
-            Console.WriteLine("Calculate of The Lines " + Length_of_line);
-            Console.ReadKey();
+            double length = Math.Sqrt(distance_square);
+            return length;
         }
+
+
     }
-    class program
+    class Program
     {
-
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            //for line 1
+            Console.WriteLine("Enter x1: ");
+            int x1 = int.Parse(Console.ReadLine());
 
-            Double x1, x2, y1, y2;
-            Console.WriteLine("Enter the Co-ordinates of frist Line");
-            Console.WriteLine("Enter the Value of x1:");
-            x1 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Enter the Value of x2");
-            x2 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Enter the Value of y1:");
-            y1 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Enter the Value of y2:");
-            y2 = Convert.ToDouble(Console.ReadLine());
-            Line line = new Line();
-            line.ComputeLength(x1, x2, y1, y2);
+            Console.WriteLine("Enter y1: ");
+            int y1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter x2: ");
+            int x2 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter y2: ");
+            int y2 = int.Parse(Console.ReadLine());
+
+            Line obj1 = new Line();
+            double length1 = obj1.computelength(x1, y1, x2, y2);
+            //for line 2
+            Console.WriteLine("Enter x1: ");
+            int x11 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter y1: ");
+            int y11 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter x2: ");
+            int x22 = int.Parse(Console.ReadLine());
+
+
+            Console.WriteLine("Enter y2: ");
+            int y22 = int.Parse(Console.ReadLine());
+
+
+
+            Line obj2 = new Line();
+            double length2 = obj1.computelength(x11, y11, x22, y22);
+
+            length1 = Math.Round(length1, 3);
+            length2 = Math.Round(length2, 3);
+
+            if (length1 == length2)
+            {
+                Console.WriteLine("Two lines are equal " + length1 + " " + length2);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Two lines are not equal " + length1 + " " + length2);
+                Console.ReadLine();
+            }
+
 
         }
     }
