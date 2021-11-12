@@ -7,12 +7,12 @@ namespace LineComparisionTwoLines
     public class Line
     {
 
-        public double computelength(int x1, int y1, int x2, int y2)
+        public double computelength(int X1, int Y1, int X2, int Y2)
         {
 
-            int xabs = Math.Abs(x2 - x1);
-            int yabs = Math.Abs(y2 - y1);
-
+            int xabs = Math.Abs(X2 - X1);
+            int yabs = Math.Abs(Y2 - Y1);
+        
             int distance_square = (int)(Math.Pow(xabs, 2) + Math.Pow(yabs, 2));
 
             double length = Math.Sqrt(distance_square);
